@@ -44,5 +44,3 @@ public class UserController {
         return new ResponseEntity<User>(userServiceImpl.viewUser((id)), HttpStatus.OK);
     }
 }
-//Hai
-//bye
