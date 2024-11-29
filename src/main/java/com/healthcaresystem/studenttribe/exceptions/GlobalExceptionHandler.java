@@ -26,8 +26,14 @@ public class GlobalExceptionHandler {
 	}
 
     @ExceptionHandler(DiagnosticCenterNotFound.class)
-    public ResponseEntity<String> exp1(DiagnosticCenterNotFound e)
+    public ResponseEntity<String> exp2(DiagnosticCenterNotFound e)
     {
         return new ResponseEntity<>("custom exception: "+e.getMessage(),HttpStatus.BAD_GATEWAY);
     }
+    
+    @ExceptionHandler(TestIdNotFoundException.class)
+	public ResponseEntity<String> exp3(TestIdNotFoundException e)
+	{
+		return new ResponseEntity<>("custom exception: "+e.getMessage(),HttpStatus.BAD_GATEWAY);
+	}
 }
