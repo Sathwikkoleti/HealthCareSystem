@@ -2,7 +2,7 @@ package com.healthcaresystem.studenttribe.service;
 
 import com.healthcaresystem.studenttribe.entity.User;
 import com.healthcaresystem.studenttribe.exceptions.UserIdNotFound;
-import com.healthcaresystem.studenttribe.repository.UserRepository;
+import com.healthcaresystem.studenttribe.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @Service
 @RequestMapping("/User")
-public class UserServiceImpl implements UserServiceInterface {
+public class UserServiceImpl implements IUserServiceInterface {
 
     @Autowired
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
 
     @Override

@@ -1,11 +1,10 @@
 package com.healthcaresystem.studenttribe.service;
 
 
-import com.healthcaresystem.studenttribe.controller.UserController;
 import com.healthcaresystem.studenttribe.entity.User;
 import com.healthcaresystem.studenttribe.exceptions.UserIdNotFound;
 
-public interface UserServiceInterface
+public interface IUserServiceInterface
 
 {
     String validateUser(String email, String password);
