@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthcaresystem.studenttribe.entity.DiagnosticTestEntity;
+import com.healthcaresystem.studenttribe.entity.DiagnosticTest;
 import com.healthcaresystem.studenttribe.service.IDiagnosticTestService;
-
-import jakarta.servlet.http.HttpSession;
 /*Controller Class for DiagnosticTest
   Author :Rala Shashank Yadav
  */
@@ -43,7 +41,7 @@ public class DiagnosticTestController {
 	
 	
 	@PostMapping("/addTest")
-	public ResponseEntity<DiagnosticTestEntity> addTests(@RequestBody DiagnosticTestEntity test_data){
+	public ResponseEntity<DiagnosticTest> addTests(@RequestBody DiagnosticTest test_data){
 		return new ResponseEntity(addTestService.addTests(test_data),HttpStatus.OK);
 	}
 	
@@ -57,7 +55,7 @@ public class DiagnosticTestController {
 	 ****************************/
 	
 	@PutMapping({"/updateTestDetails/{id}"})
-	public ResponseEntity<DiagnosticTestEntity> updateTest(@RequestBody DiagnosticTestEntity test_data,@PathVariable int id){
+	public ResponseEntity<DiagnosticTest> updateTest(@RequestBody DiagnosticTest test_data, @PathVariable int id){
 		addTestService.updateTestData(test_data,id);
 		return new ResponseEntity(test_data,HttpStatus.OK);
 	}
@@ -71,8 +69,8 @@ public class DiagnosticTestController {
 	 ****************************/
 	
 	@GetMapping("/viewAllTestsDetails")
-	public ResponseEntity<List<DiagnosticTestEntity>> viewAllTests(){
-		return new ResponseEntity<List<DiagnosticTestEntity>>(addTestService.viewAllTests(),HttpStatus.OK);
+	public ResponseEntity<List<DiagnosticTest>> viewAllTests(){
+		return new ResponseEntity<List<DiagnosticTest>>(addTestService.viewAllTests(),HttpStatus.OK);
 	}
 	
 	/****************************
@@ -84,8 +82,8 @@ public class DiagnosticTestController {
 	 ****************************/
 	
 	@GetMapping("/viewTest/{id}")
-	public ResponseEntity<DiagnosticTestEntity> viewTest(@PathVariable Integer id){
-		return new ResponseEntity<DiagnosticTestEntity>(addTestService.viewTest(id), HttpStatus.OK);
+	public ResponseEntity<DiagnosticTest> viewTest(@PathVariable Integer id){
+		return new ResponseEntity<DiagnosticTest>(addTestService.viewTest(id), HttpStatus.OK);
 	}
 	
 	

@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.healthcaresystem.studenttribe.entity.DiagnosticTestEntity;
+import com.healthcaresystem.studenttribe.entity.DiagnosticTest;
 import com.healthcaresystem.studenttribe.exceptions.TestIdNotFoundException;
 import com.healthcaresystem.studenttribe.repository.IDiagnosticTestRepository;
 
@@ -22,16 +22,16 @@ public class DiagnosticTestServiceImpl implements IDiagnosticTestService
 	private IDiagnosticTestRepository itestrepository;
 
 	@Override
-	public DiagnosticTestEntity addTests(DiagnosticTestEntity test_data) {
+	public DiagnosticTest addTests(DiagnosticTest test_data) {
 		// TODO Auto-generated method stub
 		return itestrepository.save(test_data);
 	}
 	
 	
 	@Override
-	public DiagnosticTestEntity updateTestData(DiagnosticTestEntity test,int id) throws TestIdNotFoundException
+	public DiagnosticTest updateTestData(DiagnosticTest test, int id) throws TestIdNotFoundException
 	{
-		Optional<DiagnosticTestEntity> optionalTest = itestrepository.findById(test.getTestId());
+		Optional<DiagnosticTest> optionalTest = itestrepository.findById(test.getTestId());
 		if(optionalTest.isEmpty())
 			throw new TestIdNotFoundException("For Updating Testdetails not found by TestId: "+id);
 		
@@ -40,15 +40,15 @@ public class DiagnosticTestServiceImpl implements IDiagnosticTestService
 	}
 
 //	@Override 
-	public List<DiagnosticTestEntity> viewAllTests(){
+	public List<DiagnosticTest> viewAllTests(){
 		return  itestrepository.findAll();
 	}
 
 
 	@Override
-	public DiagnosticTestEntity viewTest(int id) throws TestIdNotFoundException
+	public DiagnosticTest viewTest(int id) throws TestIdNotFoundException
 	{
-		Optional<DiagnosticTestEntity> optionalTests =  itestrepository.findById(id); 
+		Optional<DiagnosticTest> optionalTests =  itestrepository.findById(id);
 		if(optionalTests.isEmpty())
 			throw new TestIdNotFoundException("Test Details not found by TestId: "+id);
 		return optionalTests.get();

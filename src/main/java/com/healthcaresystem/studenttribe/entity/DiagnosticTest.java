@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 
 @Entity
 @Table(name="Tests")
-public class DiagnosticTestEntity {
+public class DiagnosticTest {
 
 	@Id
 	@GeneratedValue
@@ -42,7 +42,7 @@ public class DiagnosticTestEntity {
 
 
 
-	public DiagnosticTestEntity()
+	public DiagnosticTest()
 	{
 		
 	}

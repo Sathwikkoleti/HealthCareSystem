@@ -1,8 +1,6 @@
 package com.healthcaresystem.studenttribe.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class TestResult {
@@ -12,6 +10,13 @@ public class TestResult {
     private String testName;
     private String testResult;
     private String units;
+
+    @ManyToOne
+    @JoinColumn(name="appointment_id", nullable = false)
+    private Appointment appointment;
+    @ManyToOne
+    @JoinColumn(name = "dignostic_test_id", nullable = false)
+    private DiagnosticTest dignostictest;
 
     public TestResult() {
     }
