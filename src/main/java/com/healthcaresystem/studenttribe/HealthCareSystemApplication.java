@@ -8,6 +8,6 @@ public class HealthCareSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HealthCareSystemApplication.class, args);
-        System.out.println("shiva");
+        System.out.println("HealthCareSystemApplication Server Started....");
     }
 }

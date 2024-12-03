@@ -2,7 +2,7 @@ package com.healthcaresystem.studenttribe.controller;
 
 import com.healthcaresystem.studenttribe.entity.TestResult;
 import com.healthcaresystem.studenttribe.exceptions.TestResultNotFound;
-import com.healthcaresystem.studenttribe.service.TestResultServiceImpl;
+import com.healthcaresystem.studenttribe.service.ITestResultServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/TestResult")
 public class TestResultController {
     @Autowired
-    private TestResultServiceImpl testResultService;
+    private ITestResultServiceImpl testResultService;
 
     @PostMapping("/addTestResult")
     public ResponseEntity<TestResult> addTestResult(@RequestBody

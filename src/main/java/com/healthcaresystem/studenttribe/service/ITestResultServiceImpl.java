@@ -1,21 +1,21 @@
 package com.healthcaresystem.studenttribe.service;
 
-import com.healthcaresystem.studenttribe.entity.TestResult;
-import com.healthcaresystem.studenttribe.exceptions.TestResultNotFound;
-import com.healthcaresystem.studenttribe.repository.TestResultRepository;
-//import com.healthcaresystem.studenttribe.repository.TestResultRepositoryImpl;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.healthcaresystem.studenttribe.entity.TestResult;
+import com.healthcaresystem.studenttribe.exceptions.TestResultNotFound;
+import com.healthcaresystem.studenttribe.repository.ITestResultRepository;
 
 @Service
-public class TestResultServiceImpl implements TestResultServiceInterface {
+public class ITestResultServiceImpl implements TestResultServiceInterface {
 
     //    @Autowired
 //    private TestResultRepositoryImpl testResultRepository;
     @Autowired
-    private TestResultRepository testResultRepository;
+    private ITestResultRepository testResultRepository;
 
     @Override
     public TestResult addTestResult(TestResult testResult) {
