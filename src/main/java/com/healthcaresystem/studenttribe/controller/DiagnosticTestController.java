@@ -55,11 +55,7 @@ public class DiagnosticTestController {
 	 ****************************/
 	
 	@PutMapping({"/updateTestDetails/{id}"})
-<<<<<<< Updated upstream
 	public ResponseEntity<DiagnosticTest> updateTest(@RequestBody DiagnosticTest test_data, @PathVariable int id){
-=======
-	public ResponseEntity<DiagnosticTest> updateTest(@RequestBody DiagnosticTest test_data,@PathVariable int id){
->>>>>>> Stashed changes
 		addTestService.updateTestData(test_data,id);
 		return new ResponseEntity(test_data,HttpStatus.OK);
 	}
