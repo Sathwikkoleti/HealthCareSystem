@@ -1,5 +1,6 @@
 package com.healthcaresystem.studenttribe.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,10 +11,15 @@ public class DiagnosticCenterAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int diagnosticCenterAddressId;
+    @Column(nullable = false)
     private String diagnosticCenterPlotNumber;
+    @Column(nullable = false)
     private String diagnosticCenterStreet;
+    @Column(nullable = false)
     private String diagnosticCenterLandmark;
+    @Column(nullable = false)
     private String diagnosticCenterCity;
+    @Column(nullable = false)
     private String diagnosticCenterPincode;
 
     // Getters and Setters

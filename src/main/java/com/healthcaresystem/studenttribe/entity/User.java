@@ -1,5 +1,6 @@
 package com.healthcaresystem.studenttribe.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,8 +10,11 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
+    @Column(nullable = false)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String email;
 
     public User() {

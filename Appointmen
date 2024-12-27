@@ -1,0 +1,14 @@
+http://localhost:9000/appointment/addAppointment
+
+{
+    "date": "2024-11-22",
+    "status": "scheduled",
+    "patient": {
+        "patientName": "shashank",
+        "patientAge": 20,
+        "patientGender": "Male"
+    }
+}
+
+http://localhost:9000/appointment/getAppointment/1
+

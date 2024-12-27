@@ -29,7 +29,11 @@ public class DiagnosticTestServiceImpl implements IDiagnosticTestService
 	
 	
 	@Override
+<<<<<<< Updated upstream
 	public DiagnosticTest updateTestData(DiagnosticTest test, int id) throws TestIdNotFoundException
+=======
+	public DiagnosticTest updateTestData(DiagnosticTest test,int id) throws TestIdNotFoundException
+>>>>>>> Stashed changes
 	{
 		Optional<DiagnosticTest> optionalTest = itestrepository.findById(test.getTestId());
 		if(optionalTest.isEmpty())
@@ -48,7 +52,11 @@ public class DiagnosticTestServiceImpl implements IDiagnosticTestService
 	@Override
 	public DiagnosticTest viewTest(int id) throws TestIdNotFoundException
 	{
+<<<<<<< Updated upstream
 		Optional<DiagnosticTest> optionalTests =  itestrepository.findById(id);
+=======
+		Optional<DiagnosticTest> optionalTests =  itestrepository.findById(id); 
+>>>>>>> Stashed changes
 		if(optionalTests.isEmpty())
 			throw new TestIdNotFoundException("Test Details not found by TestId: "+id);
 		return optionalTests.get();

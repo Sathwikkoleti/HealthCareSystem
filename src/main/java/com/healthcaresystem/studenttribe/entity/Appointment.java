@@ -1,14 +1,19 @@
 package com.healthcaresystem.studenttribe.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 @Entity
 public class Appointment
@@ -17,16 +22,29 @@ public class Appointment
     @GeneratedValue
 	private int appointmentId;
 	
-	@Column
+	@Column(nullable = false)
 	private Date date;
 	
-	@Column
+	@Column(nullable = false)
 	private String status;
-//	private DiagnosticTest testName;
-//	private DiagnosticCenter centerName;
+	
+    @ManyToMany
+    @JoinTable(
+      name = "appointment_diagnostic_test",  // Join table name
+      joinColumns = @JoinColumn(name = "appointment_id"),  // Foreign key column in the join table
+      inverseJoinColumns = @JoinColumn(name = "diagnostic_test_id") // Foreign key column in the join table
+    )
+    private List<DiagnosticTest> diagnosticTests;  // List of tests associated with the appointmen
+	
+	@ManyToOne
+	@JoinColumn(name = "diagnosticCenterId")
+	private DiagnosticCenter diagnosticCenter;
+	
+	@OneToMany(mappedBy = "appointment" , cascade = CascadeType.ALL)
+	private Set<TestResult> testResults;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="patient_id")
+	@JoinColumn(name="patient_id",referencedColumnName = "patientId")
 	private Patient patient;
 	
 	public Appointment() {}

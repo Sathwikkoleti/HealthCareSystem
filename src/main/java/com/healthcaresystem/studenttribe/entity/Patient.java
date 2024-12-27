@@ -12,13 +12,13 @@ public class Patient
     @GeneratedValue
     private int patientId;
     
-    @Column
+    @Column(nullable = false)
     private String patientName;
     
-    @Column
+    @Column(nullable = false)
     private int patientAge;
     
-    @Column
+    @Column(nullable = false)
     private String patientGender;
     
     public Patient() {}
