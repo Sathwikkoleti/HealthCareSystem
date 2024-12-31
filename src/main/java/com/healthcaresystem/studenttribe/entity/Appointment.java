@@ -47,6 +47,10 @@ public class Appointment
 	@JoinColumn(name="patient_id",referencedColumnName = "patientId")
 	private Patient patient;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id" ,  referencedColumnName = "id") // Foreign key column in the database
+	private User user;
+
 	public Appointment() {}
 
 	public int getAppointmentId() {
